@@ -25,9 +25,9 @@ $ echo $$
 they will be the same value, because it is the parent process id (the current working shell).
 
 ## PID_MAx
-~
+`
 /proc/sys/kernel/pid_max
-~
+`
 prints the maximum value a process ID can be
 
 > pid_max.sh
