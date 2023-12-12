@@ -77,6 +77,35 @@ $ gcc -Wall -Wextra -Werror -pedantic prompt.c -o prompt
 $ ./prompt
 ~~~
 
+### command line to av
+Write a function that splits a string and returns an array of each word of the string.
+
+`man strtok`
+
+> strtok.c
+
+~~~
+$ gcc strtok.c -o strtok
+$ ./strtok
+~~~
+
+---
+
+## Executing a program
+
+The system call `execve` allows a process to execute another program (`man 2 execve`)
+
+> exec.c
+
+~~~
+$ gcc -Wall -Wextra -Werror -pedantic exec.c -o exec
+$ ./exec
+~~~
+
+
+
+
+
 <br>
 
 ===
