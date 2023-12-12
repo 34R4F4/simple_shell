@@ -89,6 +89,8 @@ $ gcc strtok.c -o strtok
 $ ./strtok
 ~~~
 
+> _strtok.c
+
 ---
 
 ## Executing a program
@@ -102,6 +104,31 @@ $ gcc -Wall -Wextra -Werror -pedantic exec.c -o exec
 $ ./exec
 ~~~
 
+~~~c
+ char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
+    /**
+     * argv[0]: command path		bin/ls
+     * argv[1]: command option		-l
+     * argv[2]: command target		/usr/
+     * argv[3]: command env		NULL
+     */
+
+ char *envv[] = {};	//NULL
+ execve(argv[0], argv, envv);
+ /** execve (command_path, argv, env) */
+~~~
+
+---
+
+## Creating processes
+
+The system call `fork` (`man 2 fork`) creates a new child process, almost identical to the parent (the process that calls `fork`). Once `fork` successfully returns, two processes continue to run the same program, but with different stacks, datas and heaps.
+
+> fork.c
+
+~~~
+$ ./fork
+~~~
 
 
 
