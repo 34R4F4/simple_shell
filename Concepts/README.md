@@ -238,6 +238,18 @@ $ gcc -Wall -Werror -pedantic shell.c -o shell
 $ ./shell
 ~~~
 
+---
+# Super Simple Shell
+
+ write a first version of a super simple shell that can run commands with their full path, without any argument.
+---
+
+# File information
+
+The `stat` (`man 2 stat`) system call 
+ * gets the status of a file. 
+ - On success, zero is returned. 
+ - On error, -1 is returned.
 
 
 
