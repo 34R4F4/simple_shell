@@ -156,6 +156,44 @@ Using the return value of fork, it is possible to know if the current process is
 		- step3
 		- step4
 
+---
+
+## Wait
+
+The `wait` system call (`man 2 wait`) suspends execution of the calling process until one of its children terminates.
+
+> wait.c
+
+~~~c
+$ gcc -Wall -Wextra -Werror -pedantic wait.c -o wait
+$ ./wait 
+~~~
+
+* code:
+   - step1
+   - step2
+   - fork
+   - wait
+   - step3
+   - step4
+
+* execusion:
+    * parent
+	- step1
+	- step2
+	- fork
+	- wait
+    * child
+	- step3
+	- step4
+    * parent
+	- step3
+	- step4
+
+
+---
+
+### Exercise: fork + wait + execve
 
 
 <br>
