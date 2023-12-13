@@ -1,6 +1,0 @@
----
-# Super Simple Shell
----
-
-
-
