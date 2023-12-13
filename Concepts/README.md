@@ -270,10 +270,8 @@ Write a program that looks for files in the current PATH.
 	* X_OK: Check if the file is executable.
 	* F_OK: Check if the file exists.
 
- Return:
-
+	Return:
 	 0	success
-
 	-1	fail
 
 
