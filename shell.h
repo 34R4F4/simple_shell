@@ -9,7 +9,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/**
+/*
  * Allowed functions and system calls:
  *
  * access
@@ -47,4 +47,4 @@
 
 
 
-#endif
+#endif /* SHELL_H */
