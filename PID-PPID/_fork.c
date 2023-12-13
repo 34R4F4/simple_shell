@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * main - fork example
+ * main - my _fork example
  *
  * Return: Always 0.
  */

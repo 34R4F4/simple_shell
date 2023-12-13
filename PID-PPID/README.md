@@ -127,9 +127,34 @@ The system call `fork` (`man 2 fork`) creates a new child process, almost identi
 > fork.c
 
 ~~~
+$ gcc fork.c -o fork
 $ ./fork
 ~~~
 
+Using the return value of fork, it is possible to know if the current process is the father or the child: 
+	fork will return 
+	- 0 			to the child
+	- PID of the child 	to the father
+
+	- -1 			if failuar
+
+* code:
+	- step1
+	- step2
+	- fork
+	- step3
+	- step4
+
+* execusion:
+	* parent
+		- step1
+		- step2
+		- fork
+		- step3
+		- step4
+	* child
+		- step3
+		- step4
 
 
 
