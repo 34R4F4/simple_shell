@@ -183,17 +183,17 @@ $ ./wait
    - step4
 
 * execusion:
-    * parent
-	- step1
-	- step2
-	- fork
-	- wait
-    * child
-	- step3
-	- step4
-    * parent
-	- step3
-	- step4
+	* parent
+		- step1
+		- step2
+		- fork
+		- wait
+	* child
+		- step3
+		- step4
+	* parent
+		- step3
+		- step4
 
 
 ---
@@ -248,14 +248,44 @@ $ ./shell
 
 The `stat` (`man 2 stat`) system call 
  * gets the status of a file. 
- - On success, zero is returned. 
- - On error, -1 is returned.
+	- Return	 0	On success
+	- Return	-1	On error
+
+> stat.c
+---
+
+## find a file in the PATH
+Write a program that looks for files in the current PATH.
+	Usage: `_which filename ...`
+
+---
+### access()
+
+`int access(const char *path, int mode);`
+
+   - `path`: The path to the file or directory whose accessibility is being checked.
+   - `mode`: The access mode indicating the type of accessibility check. It can be a combination of the following flags:
+  * R_OK: Check if the file is readable.
+  * W_OK: Check if the file is writable.
+  * X_OK: Check if the file is executable.
+  * F_OK: Check if the file exists.
 
 
 
+---
 
+# Environment
 
+We have seen earlier that the shell uses an environment list, where environment variables are “stored”. The list is an array of strings, with the following format: `var=value`, where `var` is the name of the variable and value its `value`. As a reminder, you can list the environment with the command `printenv`:
 
+~~~
+$ printenv
+~~~
+
+Actually, every process comes with an environment. When a new process is created, it inherits a copy of its parent’s environment. To access the entire environment within a process, you have several options:
+
+    - via the `main` function
+    - via the global variable `environ` (man environ)
 
 
 
