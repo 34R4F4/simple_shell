@@ -91,6 +91,9 @@ while (1)/*start loop*/
 	/*fork sub-process success*/
 	if (child_pid == 0)
 	{
+		if (toks_arr[0] == NULL)
+			exit(1);
+
 		if (execve(toks_arr[0], toks_arr, NULL) == -1)
 		/** execve (
 		 * 	execution file path	toks_arr[0]	/usr/bin/ls
@@ -114,10 +117,11 @@ while (1)/*start loop*/
 	}
 
 
+/* free memory */
+	free(toks_arr);
+
 }/*end while loop*/
 
-free(toks_arr);
-free(buffer);
 
 return (0);
 }
