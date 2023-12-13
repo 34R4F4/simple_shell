@@ -67,15 +67,15 @@ while (1)/*start loop*/
 		/*save token to the array*/
 		tok = strtok(NULL, "\t\n");
 		/*continue tokenizing the next*/
-		printf("\n%d\t%s\n", t, toks_arr[t]);
 		t++;
 	}
-	toks_arr[t] = NULL;/*terminate*/
+	toks_arr[t] = NULL;/*terminate the array*/
+	t = 0;	/*reset incase of another input entered*/
 
 
 /** manage processe */
 
-	child_pid = fork()
+	child_pid = fork();
 	/*create sub-process to run inputed command*/
 
 	/*fork fail*/
