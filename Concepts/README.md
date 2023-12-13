@@ -1,4 +1,9 @@
-# PID & PPID
+ 
+# Everything you need to know to start coding your own shell
+ 
+---
+
+## PID & PPID
 
 ## PID process id
 A process is an instance of an executing program, that has a unique process ID. This process ID is used by many functions and system calls to interact with and manipulate processes. In order to retrieve the current process’ ID, you can use the system call `getpid` (`man 2 getpid`)
@@ -164,7 +169,7 @@ The `wait` system call (`man 2 wait`) suspends execution of the calling process 
 
 > wait.c
 
-~~~c
+~~~
 $ gcc -Wall -Wextra -Werror -pedantic wait.c -o wait
 $ ./wait 
 ~~~
@@ -194,6 +199,55 @@ $ ./wait
 ---
 
 ### Exercise: fork + wait + execve
+
+Write a program that executes the command `ls -l /tmp` in 5 different child processes. Each child should be created by the same process (the father). Wait for a child to exit before creating a new child.
+
+> fork-wait-execve.c
+
+~~~
+$ gcc fork-wait-execve.c -o fwe
+$ ./fwe
+~~~
+
+----
+
+# Exercise: super simple shell
+
+Using everything we saw, write a first version of a super simple shell that can run commands with their full path, without any argument.
+* files:
+ - env-environ.c
+ - env-main.c
+ - exec
+ - exec.c
+ - fork
+ - fork.c
+ - mypid
+ - pid.c
+ - ppid
+ - ppid.c
+ - printenv
+ - prompt
+ - promptc
+ - prompt.c
+ - shell.c
+ - wait
+ - wait.c
+
+~~~
+$ gcc -Wall -Werror -pedantic shell.c -o shell
+$ ./shell
+~~~
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br>
