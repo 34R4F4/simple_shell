@@ -132,11 +132,11 @@ $ ./fork
 ~~~
 
 Using the return value of fork, it is possible to know if the current process is the father or the child: 
-	fork will return 
-	- 0 			to the child
-	- PID of the child 	to the father
 
-	- -1 			if failuar
+	* fork will return 
+	 0					to the child
+	 PID of the child 	to the father
+	 -1		 			if failuar
 
 * code:
 	- step1
