@@ -265,11 +265,14 @@ Write a program that looks for files in the current PATH.
 
    - `path`: The path to the file or directory whose accessibility is being checked.
    - `mode`: The access mode indicating the type of accessibility check. It can be a combination of the following flags:
-  * R_OK: Check if the file is readable.
-  * W_OK: Check if the file is writable.
-  * X_OK: Check if the file is executable.
-  * F_OK: Check if the file exists.
+	* R_OK: Check if the file is readable.
+	* W_OK: Check if the file is writable.
+	* X_OK: Check if the file is executable.
+	* F_OK: Check if the file exists.
 
+ Return:
+	 0	success
+	-1	fail
 
 
 ---
