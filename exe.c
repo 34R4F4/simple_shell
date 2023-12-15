@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * exe - function to run command
+ * _exe - function to run command
  *
  * @tokens_array: tokens_array argument
  * @argv: argument victor
