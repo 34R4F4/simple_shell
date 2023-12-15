@@ -12,7 +12,7 @@ void prompt(char **argv, char **envi, bool mode)
 	size_t buffer_size = 0;
 	ssize_t num_c = 0;/* keyboard_input*/
 	char *command_buffer = NULL;
-	char **tokens_array;
+	char **tokens_array = NULL;
 	int t;
 
 	while (1)
@@ -28,19 +28,19 @@ void prompt(char **argv, char **envi, bool mode)
 		}
 		if (command_buffer[num_c - 1] == '\n')
 			command_buffer[num_c - 1] = '\0';
-		command_buffer = trim(command_buffer);
+		command_buffer = _trim(command_buffer);
 		if (_strlen(command_buffer) == 0)
 			continue;
 		t = 0;
 		tokens_array[t] = strtok(command_buffer, " \n");
-		_exit(command_buffer);
+		ex_it(command_buffer);
 		_path(tokens_array, command_buffer);
 		while (tokens_array[t])
 		{
 			t++;
 			tokens_array[t] = strtok(NULL, " \n");
 		}
-		exe(argv, tokens_array, envi); /* envir */
+		_exe(argv, tokens_array, envi);
 	}
 	free(command_buffer);
 }

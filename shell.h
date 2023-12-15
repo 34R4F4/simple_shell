@@ -30,11 +30,12 @@ char *_strncat(char *dist, const char *src, size_t n);
 char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
 char *_trim(char *command);
-void _exit(char *command);
+void ex_it(char *command);
 void ctrlc(int num);
 char *_path(char **argv, char *command);
 int intlen(int n);
-void geterror(denum *n, char **argv, char *command);
+void geterror(line *n, char **argv, char *command);
+void _exe(char **tokens_array, char **argv, char **envi);
 
 /** extern enviroment */
 extern char **environ;
