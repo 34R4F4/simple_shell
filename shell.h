@@ -31,15 +31,12 @@ int _strcmp(char *txt1, char *txt2);
 int _strlen(char *txt);
 char *_strcpy(char *dist, char *src);
 int _strncmp(char *txt1, char *txt2, int n);
-char *_strncat(char *dist, const char *src, size_t n);
 char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
 char *_trim(char *command);
 void ex_it(char *command);
 void ctrlc(int num);
 char *_path(char **tokens_array, char *command_buffer);
-int intlen(int n);
-void geterror(line *n, char **argv, char *command);
 void _exe(char **tokens_array, char **argv, char **envi);
 
 /** extern enviroment */
