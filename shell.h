@@ -11,6 +11,7 @@
 #include <signal.h>
 #include <stdbool.h>
 
+/** Structures */
 /**
  * struct line - structure that contains line number
  * @cnt: lines cnt
@@ -19,6 +20,10 @@ typedef struct line
 {
 	int cnt;
 } line;
+
+/* Constansts */
+#define TOKENS 10
+
 
 /** Functions */
 void prompt(char **argv, char **envi, bool mode);
@@ -32,7 +37,7 @@ char *_strcat(char *dest, char *src);
 char *_trim(char *command);
 void ex_it(char *command);
 void ctrlc(int num);
-char *_path(char **argv, char *command);
+char *_path(char **tokens_array, char *command_buffer);
 int intlen(int n);
 void geterror(line *n, char **argv, char *command);
 void _exe(char **tokens_array, char **argv, char **envi);

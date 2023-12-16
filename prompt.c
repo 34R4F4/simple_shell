@@ -1,6 +1,17 @@
 #include "shell.h"
 
 /**
+ * ctrlc - handle Ctrl+C
+ *
+ * @num: keyboard num argument
+ */
+void ctrlc(int num)
+{
+	(void)num;
+	write(STDOUT_FILENO, "\n$ ", _strlen("\n$ "));
+}
+
+/**
  * prompt - a shell prompt to recive commands
  *
  * @argv: arguments victor
@@ -12,7 +23,7 @@ void prompt(char **argv, char **envi, bool mode)
 	size_t buffer_size = 0;
 	ssize_t num_c = 0;/* keyboard_input*/
 	char *command_buffer = NULL;
-	char **tokens_array = NULL;
+	char *tokens_array[TOKENS];
 	int t;
 
 	while (1)

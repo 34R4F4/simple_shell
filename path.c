@@ -3,12 +3,12 @@
 /**
  * _path - handle the path function
  *
- * @argv: argument victor
- * @command: inputed command
+ * @tokens_array: tokenized command
+ * @command: the command_buffer to save
  *
  * Return: command for execution
  */
-char *_path(char **argv, char *command)
+char *_path(char **tokens_array, char *command)
 {
 	char *path;
 
@@ -22,8 +22,8 @@ char *_path(char **argv, char *command)
 
 	if (command[0] != '/' && command[0] != '.')
 	{
-		argv[0] = _strcat(path, command);
-		return (argv[0]);
+		tokens_array[0] = _strcat(path, command);
+		return (tokens_array[0]);
 	}
 	free(path);
 	return (command);

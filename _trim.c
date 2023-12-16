@@ -20,7 +20,7 @@ char *_trim(char *command)
 	cpcmd = malloc(len + 1);
 	if (!cpcmd)
 	{
-		perror("Memory Allocation Failed\n");
+		perror("Allocation Failed\n");
 		return (NULL);
 	}
 	_strncpy(cpcmd, command + i, len);
