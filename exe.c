@@ -1,13 +1,12 @@
 #include "shell.h"
 
 /**
- * _exe - function to run command
- *
- * @tokens_array: tokens_array argument
- * @argv: argument victor
- * @envi: enviroment variables array
+ * exe - function to run command
+ * @tokens_array: tokens array list
+ * @arg_victor: argument victor
+ * @env_list: eenviroment variables array
  */
-void _exe(char **tokens_array, char **argv, char **envi)
+void exe(char **tokens_array, char **arg_victor, char **env_list)
 {
 	pid_t child_PID;
 	int status;
@@ -22,9 +21,10 @@ void _exe(char **tokens_array, char **argv, char **envi)
 	if (child_PID == 0)
 	{
 
-		if (execve(tokens_array[0], tokens_array, envi) == (-1))
+		if (execve(tokens_array[0], tokens_array, env_list) == (-1))
 		{
-			write(STDOUT_FILENO, argv[0], _strlen(argv[0]));
+			/* handle Error */
+			write(STDOUT_FILENO, arg_victor[0], _strlen(arg_victor[0]));
 			write(STDOUT_FILENO, ": No such file or directory",
 			_strlen(": No such file or directory"));
 			write(STDOUT_FILENO, "\n", 1);
@@ -36,4 +36,3 @@ void _exe(char **tokens_array, char **argv, char **envi)
 		wait(&status);
 	}
 }
-

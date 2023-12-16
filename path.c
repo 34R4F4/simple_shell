@@ -1,3 +1,4 @@
+
 #include "shell.h"
 
 /**
@@ -13,7 +14,6 @@ char *_path(char **tokens_array, char *command)
 	char *path;
 
 	path = malloc(_strlen("/bin/") + _strlen(command) + 1);
-
 	if (!path)
 	{
 		return (NULL);

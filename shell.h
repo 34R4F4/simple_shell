@@ -1,45 +1,33 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-/** Headers */
-#include <stdlib.h>
+/** HEADERS */
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/wait.h>
+#include <sys/types.h>
 #include <signal.h>
 #include <stdbool.h>
 
-/** Structures */
-/**
- * struct line - structure that contains line number
- * @cnt: lines cnt
- */
-typedef struct line
-{
-	int cnt;
-} line;
+/** CONSTANTS */
+#define TOKENS 8
 
-/* Constansts */
-#define TOKENS 10
-
-
-/** Functions */
-void prompt(char **argv, char **envi, bool mode);
-int _strcmp(char *txt1, char *txt2);
-int _strlen(char *txt);
-char *_strcpy(char *dist, char *src);
-int _strncmp(char *txt1, char *txt2, int n);
-char *_strncpy(char *dest, char *src, int n);
+/** FUNCTIONS */
+/* String Functions */
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
-char *_trim(char *command);
+char *_strncpy(char *dest, char *src, int n);
+/* Operating Functions */
+void prompt(char **arg_victor, char **env_list, bool run_mode);
+char *trim(char *command);
+char *_path(char **tokens_array, char *command);
+void exe(char **tokens_array, char **arg_victor, char **env_list);
 void ex_it(char *command);
-void ctrlc(int num);
-char *_path(char **tokens_array, char *command_buffer);
-void _exe(char **tokens_array, char **argv, char **envi);
-
-/** extern enviroment */
+/* External Functions */
 extern char **environ;
 
-#endif /* SHELL_H */
+#endif/*SHELL_H*/

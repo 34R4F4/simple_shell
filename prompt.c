@@ -1,45 +1,45 @@
 #include "shell.h"
 
 /**
- * ctrlc - handle Ctrl+C
- *
- * @num: keyboard num argument
+ * CtrlC - handle Ctrl+C
+ * @key: keyboard key press
  */
-void ctrlc(int num)
+void CtrlC(int key)
 {
-	(void)num;
+	(void)key;
 	write(STDOUT_FILENO, "\n$ ", _strlen("\n$ "));
 }
 
 /**
- * prompt - a shell prompt to recive commands
- *
- * @argv: arguments victor
- * @envi: envirement variable argument
- * @mode: flag argument for mode (interactive/non-interactive)
+ * prompt - shell prompt to recive command_buffers
+ * @arg_victor: arguments victor
+ * @env_list: envirement variable list
+ * @run_mode: flag argument for mode (interactive/non-interactive)
  */
-void prompt(char **argv, char **envi, bool mode)
+void prompt(char **arg_victor, char **env_list, bool run_mode)
 {
 	size_t buffer_size = 0;
-	ssize_t num_c = 0;/* keyboard_input*/
+	ssize_t key_c = 0;
 	char *command_buffer = NULL;
 	char *tokens_array[TOKENS];
 	int t;
 
 	while (1)
 	{
-		if (mode && isatty(STDIN_FILENO))
+		if (run_mode && isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", _strlen("$ "));
-		signal(SIGINT, ctrlc);
-		num_c = getline(&command_buffer, &buffer_size, stdin);
-		if (num_c == -1) /*handles EOF 'Ctrl+D'*/
+		signal(SIGINT, CtrlC);
+		key_c = getline(&command_buffer, &buffer_size, stdin);
+
+		/* [Ctrl+D] EOF */
+		if (key_c == -1)
 		{
 			free(command_buffer);
 			exit(EXIT_SUCCESS);
 		}
-		if (command_buffer[num_c - 1] == '\n')
-			command_buffer[num_c - 1] = '\0';
-		command_buffer = _trim(command_buffer);
+		if (command_buffer[key_c - 1] == '\n')
+			command_buffer[key_c - 1] = '\0';
+		command_buffer = trim(command_buffer);
 		if (_strlen(command_buffer) == 0)
 			continue;
 		t = 0;
@@ -51,7 +51,7 @@ void prompt(char **argv, char **envi, bool mode)
 			t++;
 			tokens_array[t] = strtok(NULL, " \n");
 		}
-		_exe(argv, tokens_array, envi);
+		exe(tokens_array, arg_victor, env_list);
 	}
 	free(command_buffer);
 }

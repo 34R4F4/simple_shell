@@ -15,4 +15,3 @@ void ex_it(char *command)
 		exit(EXIT_SUCCESS);
 	}
 }
-
